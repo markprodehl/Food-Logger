@@ -1,5 +1,26 @@
-<h1>Burgers! Coming Soon!</h1>
+<h2>Burgers on order!</h2>
 
-<pre>
-    {{ burgers }}
-</pre>
+<ol>
+  {{#each burgers}}
+    {{#unless devoured}}
+      <li>
+	        {{burger_name}} 
+          <button class="change-devour" data-id="{{id}}" data-newdevour="{{devour}}">
+		        Devour it!
+	        </button>
+      </li> 
+    {{/unless}}
+  {{/each}}
+</ol>
+
+<h2>Burgers devoured!</h2>
+
+<ol>
+  {{#each burgers}}
+    {{#if devoured}}
+      <li>
+	      {{burger_name}}
+      </li>
+    {{/if}}
+  {{/each}}
+</ol>
