@@ -4,7 +4,7 @@ const burger = {
     all: (callback) => orm.getAll("burgers", callback),
 };
 
-module.burger;
+module.exports = burger;
 
 // burger.all(burgers => console.log(burgers));
 // [
