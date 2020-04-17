@@ -1,0 +1,41 @@
+body {
+    background-color: rgb(122, 255, 222);
+}
+
+h1 {
+    text-align: center;
+    color: darkred;
+}
+
+ol,
+li {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 50%;
+}
+
+#center {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+h2 {
+    text-align: center;
+}
+
+#submitBtn {
+    display: block;
+    margin: 15px auto;
+    width: 10%;
+    height: 15%;
+}

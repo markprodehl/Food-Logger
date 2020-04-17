@@ -2,7 +2,7 @@ const router = require("express").Router();
 const burger = require("../models/burger")
 
 router.get("/", (req, res) => {
-    burger.all((data) => {
+    burger.selectAll((data) => {
         const burgerObject = {
             burgers: data,
         }

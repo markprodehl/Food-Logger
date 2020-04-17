@@ -1,7 +1,7 @@
 const orm = require("../config/orm.js");
 
 const burger = {
-    all: (callback) => orm.getAll("burgers", callback),
+    selectAll: (callback) => orm.getAll("burgers", callback),
 };
 
 module.exports = burger;
