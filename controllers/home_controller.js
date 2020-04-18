@@ -9,10 +9,6 @@ router.get("/", (req, res) => {
         console.log(burgerObject);
         res.render("index", burgerObject);
 
-        // This is a temp json dump
-        // const templateData = { burgers: JSON.stringify(burgers, null, 2) };
-        // res.render("index", templateData);
-
     })
 });
 
