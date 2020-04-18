@@ -7,7 +7,7 @@
   <ul>
     {{#each burgers}}
       {{#unless devoured}}
-        <li class="mt-2"><button data-id="{{ id }}" class="done btn btn-info btn-sm mr-1">EAT</button>{{ burger_name }}</li>
+        <li class="mt-2"><button data-id="{{ id }}" class="devoured btn btn-info btn-sm mr-1">EAT</button>{{ burger_name }}</li>
       {{/unless}}
     {{/each}}
   </ul>
@@ -25,10 +25,10 @@
 </ul>
 
 <section class="container my-5">
-  <h2>PLACE YOUR BURGER ORDER:</h2>
+  <h2>PLACE YOUR ORDER:</h2>
   <form action="/api/burgers" method="POST">
     <div class="input-group mb-3">
-      <input name="burger_name" type="text" class="form-control" placeholder="burger burger_name" aria-label="Enter burger burger_name">
+      <input name="burger_name" type="text" class="form-control" placeholder="What kind of burger would you lile to order?" aria-label="Enter burger burger_name">
       <div class="input-group-append">
         <button class="btn btn-outline-info" type="submit">Submit</button>
       </div>
@@ -38,12 +38,12 @@
 
 <script>
   $(() => {
-    $(".done").on("click", function() {
+    $(".devoured").on("click", function() {
       const id = $(this).attr("data-id");
       $.ajax({
-        url: `/api/todos/${id}`,
+        url: `/api/burgers/${id}`,
         method: "PATCH",
-        data: { done: true }
+        data: { devoured: true }
       }).then(() => {
         location.reload();
       })
