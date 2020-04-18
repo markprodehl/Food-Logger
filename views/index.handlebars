@@ -3,7 +3,7 @@
 </header>
 
 <section class="container">
-  <h2>Orders Placed!</h2>
+  <h2>Orders Placed:</h2>
   <ul>
     {{#each burgers}}
       {{#unless devoured}}
@@ -14,7 +14,7 @@
 </section>
 
 <section class="container">
-  <h2>Burgers Eaten!</h2>
+  <h2>Burgers Eaten:</h2>
   <ul>
     {{#each burgers}}
       {{#if devoured}}
@@ -28,7 +28,7 @@
   <h2>PLACE YOUR ORDER:</h2>
   <form action="/api/burgers" method="POST">
     <div class="input-group mb-3">
-      <input name="burger_name" type="text" class="form-control" placeholder="What kind of burger would you lile to order?" aria-label="Enter burger burger_name">
+      <input name="burger_name" type="text" class="form-control" placeholder="What kind of burger would you like to order?" aria-label="Enter burger burger_name">
       <div class="input-group-append">
         <button class="btn btn-outline-info" type="submit">Submit</button>
       </div>
