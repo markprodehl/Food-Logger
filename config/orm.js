@@ -9,7 +9,22 @@ const orm = {
             callback(data);
         });
     },
+
+    insertOne: (table, newRowValues, callback) => {
+        const queryString = "INSERT INTO ?? SET ?";
+        connection.query(queryString, [table, newRowValues], (error, data) => {
+            if (error) {
+                throw error;
+            }
+            callback(data);
+        });
+    },
 }
+
+
+// insertOne
+
+// updateOne
 
 module.exports = orm;
 
