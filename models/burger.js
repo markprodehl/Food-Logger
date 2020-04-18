@@ -2,9 +2,14 @@ const orm = require("../config/orm.js");
 
 const burger = {
     selectAll: (callback) => orm.getAll("burgers", callback),
+    insert: (burger_name, callback) => orm.insertOne("burgers", { burger_name }, callback),
 };
 
+
+
 module.exports = burger;
+
+burger.insert("Mushroom Burger", result => console.log(result))
 
 // burger.all(burgers => console.log(burgers));
 // [
