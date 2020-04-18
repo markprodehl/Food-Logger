@@ -29,4 +29,18 @@ router.post("/api/burgers", (req, res) => {
         //server needs to client with new burger as json
 })
 
+// PATCH /api/todos/:id
+router.patch("/api/burgers/:id", (req, res) => {
+    const id = parseInt(req.params.id);
+    if (Number.isNaN(id)) {
+        return res.sendStatus(404);
+    }
+
+    // use todo model to mark the todo as done
+    burger.markEaten(req.params.id, () => {
+        // send ok status to client
+        res.end();
+    });
+});
+
 module.exports = router;

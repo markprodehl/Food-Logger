@@ -34,9 +34,9 @@ const orm = {
     }
 }
 
-orm.updateOne("burgers", { burger_name: "Amazing Burger" }, 1, (result) => {
-    console.log(result)
-})
+// orm.updateOne("burgers", { burger_name: "Amazing Burger" }, 1, (result) => {
+//     console.log(result)
+// })
 
 
 
