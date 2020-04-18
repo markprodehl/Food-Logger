@@ -9,7 +9,7 @@ const burger = {
 
 module.exports = burger;
 
-burger.insert("Mushroom Burger", result => console.log(result))
+
 
 // burger.all(burgers => console.log(burgers));
 // [
@@ -32,3 +32,16 @@ burger.insert("Mushroom Burger", result => console.log(result))
 //       created_at: 2020-04-17T04:43:00.000Z
 //     }
 //   ]
+
+// burger.insert("Mushroom Burger", result => console.log(result))
+
+// OkPacket {
+//     fieldCount: 0,
+//     affectedRows: 1,
+//     insertId: 4,
+//     serverStatus: 2,
+//     warningCount: 0,
+//     message: '',
+//     protocol41: true,
+//     changedRows: 0
+//   }

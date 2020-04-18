@@ -16,4 +16,17 @@ router.get("/", (req, res) => {
     })
 });
 
+router.post("/api/burgers", (req, res) => {
+    // get values from request body
+    const newBurgerName = req.body.burger_name;
+    //use model to create burger with values
+    burger.insert(newBurgerName, () => {
+            //redirect the client to home page with 303
+            //status code (see other)
+            const SEE_OTHER = 303;
+            res.redirect(SEE_OTHER, "/");
+        })
+        //server needs to client with new burger as json
+})
+
 module.exports = router;
