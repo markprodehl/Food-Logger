@@ -19,36 +19,26 @@ const orm = {
             callback(data);
         });
     },
+
+    updateOne: (table, updateValues, id, callback) => {
+        const queryString = "UPDATE ?? SET ? WHERE id = ?";
+        connection.query(
+            queryString, [table, updateValues, id],
+            (error, result) => {
+                if (error) {
+                    throw error;
+                }
+                callback(result);
+            }
+        );
+    }
 }
 
+orm.updateOne("burgers", { burger_name: "Amazing Burger" }, 1, (result) => {
+    console.log(result)
+})
 
-// insertOne
 
-// updateOne
+
 
 module.exports = orm;
-
-
-//THIS IS MY CALLBACK 
-// orm.getAll("burgers", burgers => console.log(burgers));
-
-// [
-//     RowDataPacket {
-//       id: 1,
-//       burger_name: 'Cheese Burger',
-//       devoured: 0,
-//       created_at: 2020-04-17T04:43:00.000Z
-//     },
-//     RowDataPacket {
-//       id: 2,
-//       burger_name: 'Classic Burger',
-//       devoured: 1,
-//       created_at: 2020-04-17T04:43:00.000Z
-//     },
-//     RowDataPacket {
-//       id: 3,
-//       burger_name: 'Double Burger',
-//       devoured: 0,
-//       created_at: 2020-04-17T04:43:00.000Z
-//     }
-//   ]
