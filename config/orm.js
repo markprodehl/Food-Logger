@@ -2,12 +2,13 @@ var connection = require("./connection.js");
 
 const orm = {
     getAll: (table, callback) => {
-        //replaced burgers with ?? and passed table as a parameter to getAll(table),
-        // Because we've passed table to getAll we need to add the [table] parameter below
         connection.query("SELECT * FROM ??", [table], (error, data) => {
-            callback(data)
-        })
-    }
+            if (error) {
+                throw error;
+            }
+            callback(data);
+        });
+    },
 }
 
 module.exports = orm;

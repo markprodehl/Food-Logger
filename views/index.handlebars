@@ -1,43 +1,52 @@
-<img src="300x300" alt="Burger" class="center">
+<header class="container">
+  <h1>Burger Reastuarnt!</h1>
+</header>
 
-<h1>Burger Restaurant</h1>
+<section class="container">
+  <h2>Orders Placed!</h2>
+  <ul>
+    {{#each burgers}}
+      {{#unless devoured}}
+        <li class="mt-2"><button data-id="{{ id }}" class="done btn btn-success btn-sm mr-1">DONE</button>{{ burger_name }}</li>
+      {{/unless}}
+    {{/each}}
+  </ul>
+</section>
 
-<h2>Burgers On Order</h2>
+<section class="container">
+  <h2>Burgers Eaten!</h2>
+  <ul>
+    {{#each burgers}}
+      {{#if devoured}}
+        <li>{{burger_name}}</li>
+      {{/if}}
+    {{/each}}
+  </section>
+</ul>
 
-<ol>
-  {{#each burgers}}
-    {{#unless devoured}}
-      <li>
-	        {{burger_name}} 
-          <button class="change-devour" data-id="{{id}}" data-newdevour="{{devour}}">
-		        Devour it!
-	        </button>
-      </li> 
-    {{/unless}}
-  {{/each}}
-</ol>
+<section class="container my-5">
+  <h2>Add a Task:</h2>
+  <form action="/api/todos" method="POST">
+    <div class="input-group mb-3">
+      <input name="text" type="text" class="form-control" placeholder="todo text" aria-label="Enter todo text">
+      <div class="input-group-append">
+        <button class="btn btn-outline-primary" type="submit">Submit</button>
+      </div>
+    </div>
+  </form>
+</section>
 
-<h2>Burgers Eaten</h2>
-
-<ol>
-  {{#each burgers}}
-    {{#if devoured}}
-      <li>
-	      {{burger_name}}
-      </li>
-    {{/if}}
-  {{/each}}
-</ol>
-
-<h2>Place Your Order</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="burgerName" class="center">Burger Name:</label>
-  </div>
-
-  <div class="form-group">
-    <input type="text" class="center" id="burgerName" name="burger_name" devoured="false">
-  </div>
-  <button type="submit" id="submitBtn">Submit</button>
-</form>
+<script>
+  $(() => {
+    $(".done").on("click", function() {
+      const id = $(this).attr("data-id");
+      $.ajax({
+        url: `/api/todos/${id}`,
+        method: "PATCH",
+        data: { done: true }
+      }).then(() => {
+        location.reload();
+      })
+    })
+  })
+</script>
