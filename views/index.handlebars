@@ -1,59 +1,62 @@
-<div class="container">
-  <nav class="navbar navbar-expand-lg text-light navbar-light bg-info">
-    <h1>Big Burger Restaurant</h1>
-  </nav>
-</div>
-
-<section class="container my-5 bg-white">
-  <h2>PLACE YOUR ORDER:</h2>
-  <form action="/api/burgers" method="POST">
-    <div class="input-group mb-3">
-      <input name="burger_name" type="text" class="form-control" placeholder="What kind of burger would you like to order?" aria-label="Enter burger burger_name">
-      <div class="input-group-append">
-        <button class="btn btn-outline-info" type="submit">Submit</button>
-      </div>
-    </div>
-  </form>
-</section>
-
-<div class="jumbotron jumbotron-fluid bg-white">
-  <div class="container bg-white">
-    <h1 class="display-4">Orders Placed:</h1>
-  <ul>
-    {{#each burgers}}
-      {{#unless devoured}}
-        <li class="mt-2"><button data-id="{{ id }}" class="devoured btn btn-info btn-sm mr-1">EAT</button>{{ burger_name }}</li>
-      {{/unless}}
-    {{/each}}
-  </ul>
-  </div>
-</div>
-
-<div class="jumbotron jumbotron-fluid">
+<div class="background pb-3">
   <div class="container">
-    <h1 class="display-4">Burgers Eaten:</h1>
-    <ul>
-    {{#each burgers}}
-      {{#if devoured}}
-        <li>{{burger_name}}</li>
-      {{/if}}
-    {{/each}}
-  </section>
-</ul>
-  </div>
+    <div class="row">
+        </div>
+        <div class="row">
+          <div class="col-md-12 background">
+            <img src="assets/img/burgerImagetwo.png" class="img-fluid" alt="Burger Picture">
+          </div>
 </div>
 
-<script>
-  $(() => {
-    $(".devoured").on("click", function() {
-      const id = $(this).attr("data-id");
-      $.ajax({
-        url: `/api/burgers/${id}`,
-        method: "PATCH",
-        data: { devoured: true }
-      }).then(() => {
-        location.reload();
-      })
-    })
-  })
-</script>
+        <section class="container my-4 display-5 background text-warning">
+          <h2>PLACE YOUR ORDER:</h2>
+          <form action="/api/burgers" method="POST">
+            <div class="input-group mb-3">
+              <input name="burger_name" type="text" class="form-control"
+                placeholder="What kind of burger would you like to order?" aria-label="Enter burger burger_name">
+              <div class="input-group-append">
+                <button class="btn btn-outline-dark bg-warning text-black" type="submit">Submit</button>
+              </div>
+            </div>
+          </form>
+        </section>
+
+        <div class="container my-4 background text-white">   
+            <h1 class="display-5">Orders Placed:</h1>
+            <ul>
+              {{#each burgers}}
+              {{#unless devoured}}
+              <li class="mt-2"><button data-id="{{ id }}"
+                  class="devoured btn btn-warning btn-sm mr-3">EAT</button>{{ burger_name }}</li>
+              {{/unless}}
+              {{/each}}
+            </ul>      
+        </div>
+
+        <div class="container my-4 background text-warning">         
+            <h1 class="display-5 text-white">Burgers Eaten:</h1>
+            <ul>
+              {{#each burgers}}
+              {{#if devoured}}
+              <li>{{burger_name}}</li>
+              {{/if}}
+              {{/each}}
+              </section>
+            </ul>         
+          <br><br><br><br><br><br><br><br><br>
+        </div>
+
+        <script>
+          $(() => {
+            $(".devoured").on("click", function () {
+              const id = $(this).attr("data-id");
+              $.ajax({
+                url: `/api/burgers/${id}`,
+                method: "PATCH",
+                data: { devoured: true }
+              }).then(() => {
+                location.reload();
+              })
+            })
+          })
+        </script>
