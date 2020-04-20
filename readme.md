@@ -24,6 +24,8 @@
  # Installation
             
  The Food Logger application is fully deployed and can be run from any browser.
+
+ A link to the deployed application can be found here. https://the-food-logger.herokuapp.com/.
             
  # Usage
             
